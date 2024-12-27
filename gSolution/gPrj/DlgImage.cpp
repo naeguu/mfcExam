@@ -115,26 +115,30 @@ void CDlgImage::OnPaint()
 	drawData(&dc);
 }
 
+// define문은 일반적으로 framework.h
+//#define COLOR_RED RGB(0xff, 0, 0)
+//#define COLOR_GREEN RGB(0, 0xff, 0)
+
 void CDlgImage::drawData(CDC* pDC)
 {
-	srand(static_cast<unsigned>(time(nullptr))); // 난수 시드 초기화
+	//srand(static_cast<unsigned>(time(nullptr))); // 난수 시드 초기화
 
 	CRect rect;
 
-	CBrush brush(RGB(200, 200, 200));   // 회색 브러시 생성
-	CBrush* pOldBrush = pDC->SelectObject(&brush);   // 기존 브러시를 저장
+	//CBrush brush(RGB(200, 200, 200));   // 회색 브러시 생성
+	//CBrush* pOldBrush = pDC->SelectObject(&brush);   // 기존 브러시를 저장
 
-	CPen pen(PS_SOLID, 2, RGB(0, 0, 0));   // 검은색 테두리
+	CPen pen(PS_SOLID, 5, COLOR_RED);   // 빨간색 테두리
 	CPen* pOldPen = pDC->SelectObject(&pen);   // 기존 테두리를 저장
 
 	for (int i = 0; i < m_nDataCount; i++) {
 		rect.SetRect(m_ptData[i], m_ptData[i]);
-		int nRan = rand() % 16 + 5;   // 랜덤값 생성 (범위: 5 ~ 20)
-		//rect.InflateRect(5, 10);
-		rect.InflateRect(nRan, nRan);
+		//int nRan = rand() % 16 + 5;   // 랜덤값 생성 (범위: 5 ~ 20)
+		rect.InflateRect(2, 2);
+		//rect.InflateRect(nRan, nRan);
 		pDC->Ellipse(rect);
 	}
 
-	pDC->SelectObject(pOldBrush);   // 이전 브러시 복원
+	//pDC->SelectObject(pOldBrush);   // 이전 브러시 복원
 	pDC->SelectObject(pOldPen);   // 이전 펜 복원
 }

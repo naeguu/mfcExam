@@ -21,7 +21,7 @@
 
 #define COLOR_RED RGB(0xff, 0, 0)
 #define COLOR_GREEN RGB(0, 0xff, 0)
-#define MAX_POINT 100
+#define MAX_POINT 100000
 
 
 

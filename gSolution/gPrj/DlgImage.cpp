@@ -84,8 +84,8 @@ BOOL CDlgImage::OnInitDialog()
 
 void CDlgImage::InitImage()
 {
-	int nWidth = 640;
-	int nHeight = 480;
+	int nWidth = 4096*5;
+	int nHeight = 4096*5;
 	int nBpp = 8;
 
 	m_Image.Create(nWidth, -nHeight, nBpp);
@@ -128,13 +128,13 @@ void CDlgImage::drawData(CDC* pDC)
 	//CBrush brush(RGB(200, 200, 200));   // 회색 브러시 생성
 	//CBrush* pOldBrush = pDC->SelectObject(&brush);   // 기존 브러시를 저장
 
-	CPen pen(PS_SOLID, 5, COLOR_RED);   // 빨간색 테두리
+	CPen pen(PS_SOLID, 2, COLOR_RED);   // 빨간색 테두리
 	CPen* pOldPen = pDC->SelectObject(&pen);   // 기존 테두리를 저장
 
 	for (int i = 0; i < m_nDataCount; i++) {
 		rect.SetRect(m_ptData[i], m_ptData[i]);
 		//int nRan = rand() % 16 + 5;   // 랜덤값 생성 (범위: 5 ~ 20)
-		rect.InflateRect(2, 2);
+		rect.InflateRect(1, 1);
 		//rect.InflateRect(nRan, nRan);
 		pDC->Ellipse(rect);
 	}

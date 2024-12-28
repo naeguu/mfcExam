@@ -12,8 +12,9 @@
 #define IDC_BTN_TEST                    1002
 #define IDC_BTN_PROCESS                 1003
 #define IDC_BTN_MAKE_PATTERN            1004
-#define IDC_BTN_MAKE_PATTERN2           1005
 #define IDC_BTN_GET_DATA                1005
+#define IDC_BTN_GET_DATA2               1006
+#define IDC_BTN_THREAD                  1006
 
 // Next default values for new objects
 // 
